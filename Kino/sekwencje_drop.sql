@@ -1,0 +1,12 @@
+DROP SEQUENCE sekwencja_bilet;
+DROP SEQUENCE sekwencja_cennik;
+DROP SEQUENCE sekwencja_dzien_tygodnia;
+DROP SEQUENCE sekwencja_rodzaj_biletu;
+DROP SEQUENCE sekwencja_promocja;
+DROP SEQUENCE sekwencja_kupujacy;
+DROP SEQUENCE sekwencja_seans;
+DROP SEQUENCE sekwencja_adres;
+DROP SEQUENCE sekwencja_film_gatunek;
+DROP SEQUENCE sekwencja_film;
+DROP SEQUENCE sekwencja_gatunek_filmu;
+DROP SEQUENCE sekwencja_sala;

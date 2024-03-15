@@ -1,0 +1,12 @@
+CREATE SEQUENCE sekwencja_bilet minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_cennik minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_dzien_tygodnia minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_rodzaj_biletu minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_promocja minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_kupujacy minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_seans minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_adres minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_film_gatunek minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_film minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_gatunek_filmu minvalue 1 maxvalue 99999 start with 1 increment by 1;
+CREATE SEQUENCE sekwencja_sala minvalue 1 maxvalue 99999 start with 1 increment by 1;

@@ -1,0 +1,12 @@
+DROP TABLE bilet;
+DROP TABLE cennik;
+DROP TABLE dzien_tygodnia;
+DROP TABLE rodzaj_biletu;
+DROP TABLE promocja;
+DROP TABLE kupujacy;
+DROP TABLE adres;
+DROP TABLE seans;
+DROP TABLE film_gatunek;
+DROP TABLE film;
+DROP TABLE gatunek_filmu;
+DROP TABLE sala;

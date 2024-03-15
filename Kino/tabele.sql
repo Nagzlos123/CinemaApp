@@ -1,0 +1,12 @@
+CREATE TABLE sala ( id INT NOT NULL, nr VARCHAR2(10) NOT NULL, liczba_miejsc INT NOT NULL, PRIMARY KEY (id));
+CREATE TABLE gatunek_filmu (id INT NOT NULL, nazwa VARCHAR2(20) NOT NULL, PRIMARY KEY (id));
+CREATE TABLE film ( id INT NOT NULL, tytul VARCHAR2(50) NOT NULL, opis VARCHAR2(255), PRIMARY KEY (id));
+CREATE TABLE film_gatunek ( id INT NOT NULL, id_filmu INT NOT NULL, id_gatunku INT NOT NULL, CONSTRAINT FK_film FOREIGN KEY (id_filmu) REFERENCES film(id), CONSTRAINT FK_gatunek_filmu FOREIGN KEY (id_gatunku) REFERENCES gatunek_filmu(id));
+CREATE TABLE seans ( id INT NOT NULL, data DATE NOT NULL, godzina VARCHAR2(5) NOT NULL, id_sali INT NOT NULL, id_filmu INT NOT NULL, PRIMARY KEY (id), CONSTRAINT FK_seans_sala FOREIGN KEY (id_sali) REFERENCES sala(id), CONSTRAINT FK_seans_film FOREIGN KEY (id_filmu) REFERENCES film(id));
+CREATE TABLE adres ( id INT NOT NULL, ulica VARCHAR2(100) NOT NULL, nr_domu int NOT NULL, nr_mieszkania int, miejscowosc VARCHAR2(100) NOT NULL, kod_pocztowy VARCHAR2(100) NOT NULL, PRIMARY KEY (id));
+CREATE TABLE kupujacy ( id INT NOT NULL, imie VARCHAR2(20) NOT NULL, nazwisko VARCHAR2(30) NOT NULL, NIP VARCHAR2(13), id_adresu INT, PRIMARY KEY (id), CONSTRAINT FK_kupujacy_adres FOREIGN KEY (id_adresu) REFERENCES adres(id));
+CREATE TABLE promocja ( id INT NOT NULL, nazwa VARCHAR2(30) NOT NULL, opis VARCHAR2(255), wartosc INT, PRIMARY KEY (id));
+CREATE TABLE rodzaj_biletu ( id INT NOT NULL, nazwa VARCHAR2(20) NOT NULL, opis VARCHAR2(255), PRIMARY KEY(id));
+CREATE TABLE dzien_tygodnia ( id INT NOT NULL, nazwa VARCHAR2(20) UNIQUE NOT NULL, PRIMARY KEY (id));
+CREATE TABLE cennik ( id INT NOT NULL, id_rodzaju_biletu INT NOT NULL, id_dnia_tygodnia INT NOT NULL, cena FLOAT, rok INT NOT NULL, PRIMARY KEY(id), CONSTRAINT cennik_check CHECK (cena > 0), CONSTRAINT FK_cennik_rodzaj_biletu FOREIGN KEY (id_rodzaju_biletu) REFERENCES rodzaj_biletu(id), CONSTRAINT FK_cennik_dzien_tygodnia FOREIGN KEY (id_dnia_tygodnia) REFERENCES dzien_tygodnia(id));
+CREATE TABLE bilet ( id INT NOT NULL, id_seansu INT NOT NULL, id_cennika INT NOT NULL, id_promocji INT, id_kupujacego INT, PRIMARY KEY (id), CONSTRAINT FK_bilet_seans FOREIGN KEY (id_seansu) REFERENCES seans(id), CONSTRAINT FK_bilet_cennik FOREIGN KEY (id_cennika) REFERENCES cennik(id), CONSTRAINT FK_bilet_promocja FOREIGN KEY (id_promocji) REFERENCES promocja(id), CONSTRAINT FK_bilet_kupujacy FOREIGN KEY (id_kupujacego) REFERENCES kupujacy(id));
